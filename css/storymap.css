@@ -4,19 +4,6 @@ body {
     font-size: 12px;
 }
 
-.cesium-viewer-cesiumWidgetContainer {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 1000;
-    display: block;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
 h3 {
     margin: 0;
     padding-top: 100px;
@@ -290,7 +277,7 @@ section {
 
 .legend {
     line-height: 16px;
-    width: 130px;
+    width: 175px;
     color: #333333;
     font-family: 'Open Sans', Helvetica, sans-serif;
     padding: 6px 8px;
@@ -316,7 +303,7 @@ section {
 
 .legend p {
     font-size: 12px;
-    line-height: 16px;
+    line-height: 20px;
     margin: 0;
 }
 
