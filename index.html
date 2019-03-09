@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
     <!--facebook and info icons-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
     <!--use a better font for this web map-->
     <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans" rel="stylesheet">
@@ -106,7 +106,7 @@
             </section>
             <section data-scene="End" data-background="../../img/mthood.jpg">
               <div class="fullscreen text-center">
-                  <h2 class="display-4 d-flex justify-content-center">The End</h2>
+                  <h1 class="display-4 d-flex justify-content-center">The End</h1>
                   <small class="d-flex justify-content-center" style="color: rgba(255,255,255,0.95)">
                     Narrative and data for choropleths are from the <a href="https://www.tfff.org/select-books/book/oregon-numbers">Oregon by the Numbers 2018 Edition</a>
                   </small>
@@ -115,11 +115,59 @@
         </div>
         <div id="map" class="col-sm-6 col-md-8 sidebar"></div>
     </div>
+
+
     <!--add a scrolling down arrow-->
     <div class="animated flash infinite glyphicon glyphicon-menu-down arrow-down"></div>
     <!--add a navigation bar-->
     <div class="navwidget text-center"></div>
 </div>
+
+<dl>
+    <dt>
+        <!--facebook icon-->
+        <a class="fab fa-facebook-square btn"
+           href="https://facebook.com/sharer.php?u=http://benjiantolin.github.io/obtcstorymap/index.html"
+           target="_blank"></a>
+    </dt>
+    <dt>
+        <!--facebook icon-->
+        <a class="fab fa-github btn" href="https://github.com/benjiantolin/obtcstorymap" style="top:40px"
+           target="_blank"></a>
+    </dt>
+    <dt>
+        <!--info icon-->
+        <i class="fas fa-info-circle btn" style="top:60px" data-toggle="modal" data-target="#info-modal"></i>
+    </dt>
+</dl>
+
+<!--the info page-->
+<div class="modal fade" id="info-modal" role="dialog">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">About</h4>
+            </div>
+            <div class="modal-body">
+                <p>This is a story map that contains a sample of key measures borrowed from the <a href="https://www.tfff.org/select-books/book/oregon-numbers">Oregon by the Numbers 2018 Edition</a> report.
+                  <br><br>
+                  These are just a handful of the key measures provided by Oregon by the Numbers to further visualize the data using a
+                  dynamic online interface. The goal of Oregon by the Numbers is to get information to local community leaders, to
+                  encorage data driven decision making.
+                  <br><br>
+                  This Oregon by the Counties story map further extends the vision by creating an online interactive platform to visualize and analyze the key measures for Oregon counties.</p>
+                <p><b>storymap.js</b> | Released Date: 02/20/2017 | Version: 2.5 | MIT License </p>
+                <p><b>Author: Benjamin Antolin</b>| Oregon State University
+                </p>
+                <p>The context about key measures was collected from the Oregon by the Numbers 2018 Edition Report.</p>
+                <p>The favicon image was acquired from <a>https://en.wikipedia.org/wiki/List_of_Oregon_state_symbols.</a></p>
+                <p>This story map uses geospatial data from cartodb and Oregon Explorer.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript">
 
     //////////////////////////////////////////////////////////////////////////
@@ -335,8 +383,11 @@
 
             // hidden the credits, but show in the about page.
             $(".leaflet-control-attribution").css("display", "none");
+
             return map;
         }
+
+
     });
 </script>
 </body>
