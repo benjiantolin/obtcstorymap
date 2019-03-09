@@ -124,7 +124,7 @@
                  transportation, health or education.</p>
             </section>
 
-            <section data-scene="end" data-background="../../img/mthood.jpg">
+            <section data-scene="end" data-background="img/mthood.jpg">
                 <div class="fullscreen text-center">
                     <h1 class="display-4 d-flex justify-content-center">For more infromation about Oregon and its counties visit:</h1>
                     <h4 class="d-flex justify-content-center" style="color: rgba(255,255,255,0.95)">
@@ -214,7 +214,7 @@
         };
     }
 
-    var counties_totpop = L.geoJson.ajax('../../assets/counties.geojson',
+    var counties_totpop = L.geoJson.ajax('assets/counties.geojson',
         {
             style: style,
             onEachFeature: function (feature, layer) {
@@ -258,7 +258,7 @@
             };
         }
 
-        var counties_ruralpop = L.geoJson.ajax('../../assets/counties.geojson',
+        var counties_ruralpop = L.geoJson.ajax('assets/counties.geojson',
             {
                 style: style,
                 onEachFeature: function (feature, layer) {
@@ -299,7 +299,7 @@
                 };
             }
 
-            var counties_netmigrate = L.geoJson.ajax('../../assets/counties.geojson',
+            var counties_netmigrate = L.geoJson.ajax('assets/counties.geojson',
                 {
                     style: style,
                     onEachFeature: function (feature, layer) {
@@ -341,7 +341,7 @@
                         };
                     }
 
-                    var counties_hcb = L.geoJson.ajax('../../assets/counties.geojson',
+                    var counties_hcb = L.geoJson.ajax('assets/counties.geojson',
                         {
                             style: style,
                             onEachFeature: function (feature, layer) {
