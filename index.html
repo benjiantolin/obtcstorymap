@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Symbolization</title>
+    <title>Oregon by the Counties</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -22,7 +22,7 @@
     <link rel="stylesheet" type="text/css" href="../../css/storymap.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!--add favicon for the web page-->
-    <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../img/oregon.ico" type="image/x-icon">
     <!--add required libraries-->
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -40,8 +40,13 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-6 col-md-4 main">
-            <section data-scene="scene1">
-                <h2>Default Style</h2>
+            <section data-scene="Home" data-background="../../img/Capitol.jpg">
+              <div class="fullscreen text-center">
+                  <h2 class="display-4 d-flex justify-content-center">Oregon by the Counties</h2>
+                  <small class="d-flex justify-content-center" style="color: black">
+                      A sample of key measures for Oregon and its counties
+                  </small>
+              </div>
             </section>
             <section data-scene="scene2">
                 <h2>Total Population</h2>
@@ -70,7 +75,7 @@
             </section>
             <section data-scene="scene4">
                 <h2>Net Migration</h2>
-                <h5><i><b>Definition:</b> Net migration is the change in population due to people moving in or out of a given area over a specified time period per 1,000 residents.<i></h5>
+                <h5><i><b>Definition:</b> Net migration is the change in population due to people moving in or out of a given area over a specified time period per 1,000 residents.</i></h5>
                 <p>A positive net migration means more people are moving into a county
                    than are leaving, while a negative value means more people are
                    moving out of a county than moving in. </p>
@@ -99,9 +104,13 @@
                    face challenges spending money in other domains, including food,
                    transportation, health or education.</p>
             </section>
-            <section data-scene="scene6">
-                <h2>Scene 6</h2>
-                <p>Inspired by the post on <a href="https://adventuresinmapping.com/2016/10/17/firefly-cartography/" target="_blank">Firefly Cartography</a>.</p>
+            <section data-scene="End" data-background="../../img/mthood.jpg">
+              <div class="fullscreen text-center">
+                  <h2 class="display-4 d-flex justify-content-center">The End</h2>
+                  <small class="d-flex justify-content-center" style="color: rgba(255,255,255,0.95)">
+                    Narrative and data for choropleths are from the <a href="https://www.tfff.org/select-books/book/oregon-numbers">Oregon by the Numbers 2018 Edition</a>
+                  </small>
+              </div>
             </section>
         </div>
         <div id="map" class="col-sm-6 col-md-8 sidebar"></div>
@@ -114,7 +123,7 @@
 <script type="text/javascript">
 
     //////////////////////////////////////////////////////////////////////////
-    // Scene 1: Plain
+    // Scene 1: Open Scene Photo
     var counties_legend ='<i style="background: black; opacity: 0.5"></i><p><b>Counties</b></p>';
     var counties = L.geoJson.ajax('../../assets/counties.geojson',  {
         color: 'black',
@@ -137,7 +146,7 @@
     // Set style function that sets fill color property equal to Total Population
     function style(feature) {
         return {
-            fillColor: setColor(feature0.properties.Total_Popu),
+            fillColor: setColor(feature.properties.Total_Popu),
             fillOpacity: 0.5,
             weight: 2,
             opacity: 0.8,
@@ -146,7 +155,7 @@
         };
     }
 
-    var counties_choropleth = L.geoJson.ajax('../../assets/counties.geojson',
+    var counties_totpop = L.geoJson.ajax('../../assets/counties.geojson',
         {
             style: style,
             onEachFeature: function (feature, layer) {
@@ -155,7 +164,7 @@
         });
 
 
-    var counties_choropleth_legend = '<p><b>Total Population</b></p>' +
+    var counties_totpop_legend = '<p><b>Total Population</b></p>' +
         '<i style="background: #fef0d9; opacity: 0.5"></i><p><b>0 - 10,000</b></p>' +
         '<i style="background: #fdcc8a; opacity: 0.5"></i><p><b>10,001 - 50,000</b></p>' +
         '<i style="background: #fc8d59; opacity: 0.5"></i><p><b>50,001 - 100,000</b></p>' +
@@ -217,7 +226,7 @@
                 '#fef0d9';
     }
 
-    // Set style function that sets fill color property equal to percentage of rural population
+    // Set style function that sets fill color property equal to net migration
     function style(feature) {
         return {
             fillColor: setColor(feature.properties.Migration),
@@ -289,42 +298,26 @@
             '<i style="background: #b30000; opacity: 0.5"></i><p><b>>38.12</b></p>';
 
     //////////////////////////////////////////////////////////////////////////
-    // Scene 6: circleMarker in glow effects
+    // Scene 6: End Scene Photo
 
-    var towers_circle2 = L.geoJson.ajax('../../assets/cell_towers.geojson', {
-        pointToLayer: function (feature, latlng) {
-            //return L.circle(latlng, 1000 * Math.pow(Math.floor((Math.random() * 3) + 1), 2));
-            return L.marker(latlng, {icon: L.divIcon({className: 'glyphicon glyphicon-one-fine-smaller-dot glow-effect'})});
-        },
-        onEachFeature: function (feature, layer) {
-            layer.bindTooltip(feature.properties.Name, {sticky: true, className: "feature-tooltip"});
-        }
-    });
-
-    var towers_circle2_legend ='<i class=""><svg height="16" width="16"> <circle cx="8" cy="8" r="6" stroke="white" stroke-width="0" fill="#00ff00" fillOpacity="0.4" /> </svg></i><p><b>Tower</b></p>';
-
-    var darkLayer = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png');
 
     //////////////////////////////////////////////////////////////////////////
 
     var layers = {
-        'counties': [counties, counties_legend],
-        'counties_choropleth': [ counties_choropleth, counties_choropleth_legend],
-        'towers': [counties_ruralpop_choropleth, counties_ruralpop_choropleth_legend],
-        'towers_color': [counties_netmigration_choropleth, counties_netmigration_choropleth_legend],
-        'towers_circle': [counties_hcb_choropleth, counties_hcb_choropleth_legend],
-        'towers_circle2': [towers_circle2, towers_circle2_legend],
-        'darkLayer': [darkLayer]
+        'totpop': [ counties_totpop, counties_totpop_legend],
+        'ruralpop': [counties_ruralpop_choropleth, counties_ruralpop_choropleth_legend],
+        'netmigrate': [counties_netmigration_choropleth, counties_netmigration_choropleth_legend],
+        'hcb': [counties_hcb_choropleth, counties_hcb_choropleth_legend],
     };
 
 
     var scenes = {
-        scene1: {lat: 44, lng: -123.5, zoom: 7, name: 'Plain', layers: ['counties']},
-        scene2: {lat: 44, lng: -123.5, zoom: 7, name: 'Choropleth', layers: ['counties_choropleth']},
-        scene3: {lat: 44, lng: -123.5, zoom: 7, name: 'towers', layers: ['towers']},
-        scene4: {lat: 44, lng: -123.5, zoom: 7, name: 'towers categorized by companies', layers: ['towers_color']},
-        scene5: {lat: 44, lng: -123.5, zoom: 7, name: 'tower circles', layers: ['towers_circle']},
-        scene6: {lat: 44, lng: -123.5, zoom: 7, name: 'tower circles', layers: ['towers_circle2', 'darkLayer']}
+        Home: {lat: 44, lng: -123.5, zoom: 7, name: 'Home' },
+        scene2: {lat: 44, lng: -123.5, zoom: 7, name: 'Total Population', layers: ['totpop']},
+        scene3: {lat: 44, lng: -123.5, zoom: 7, name: 'Rural Population', layers: ['ruralpop']},
+        scene4: {lat: 44, lng: -123.5, zoom: 7, name: 'Net Migration', layers: ['netmigrate']},
+        scene5: {lat: 44, lng: -123.5, zoom: 7, name: 'Housing Cost Burden', layers: ['hcb']},
+        End: {lat: 44, lng: -123.5, zoom: 7, name: 'End'}
     };
 
     $('.main').storymap({
