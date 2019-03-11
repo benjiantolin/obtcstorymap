@@ -195,7 +195,7 @@
     function setColor1(density){
         //Tenary operation: condition ? valueIfTrue : valueIfFalse
         // condition ? value1 : value2
-        return  density > 5644088 ? '#b30000' :
+        return  density > 564088 ? '#b30000' :
                 density > 210916 ? '#e34a33' :
                 density > 87455 ? '#fc8d59' :
                 density > 37660 ? '#fdcc8a' :
@@ -262,7 +262,7 @@
             {
                 style: style2,
                 onEachFeature: function (feature, layer) {
-                    layer.bindTooltip(feature.properties.altName+"<br> Rural Population: "+ (feature.properties.Rural_Popu).toFixed(2) + "%", {className: 'feature-label', permanent: false, direction: 'center'});
+                    layer.bindTooltip(feature.properties.altName+"<br> Rural Pop: "+ (feature.properties.Rural_Popu).toFixed(2) + "%", {className: 'feature-label', permanent: false, direction: 'center'});
                 }
             });
 
@@ -389,7 +389,7 @@
     var scenes = {
         overview: {lat: 44.0000000, lng: -123.5000000, zoom: 7, name: 'Cover Page', layers: []},
         totpop: {lat: 44.0000000, lng: -123.5000000, zoom: 7, name: 'Total Population', layers: [layers.counties_totpop]},
-        ruralpop: {lat: 44.0000000, lng: -123.5000000, zoom: 7, name: 'Rural Population', layers: [layers.counties_ruralpop, layers.ESRI]},
+        ruralpop: {lat: 44.0000000, lng: -123.5000000, zoom: 7, name: 'Rural Population', layers: [layers.counties_ruralpop]},
         netmigrate: {lat: 44.0000000, lng: -123.5000000, zoom: 7, name: 'Net Migration', layers: [layers.counties_netmigrate]},
         hcb: {lat: 44.0000000, lng: -123.5000000, zoom: 7, name: 'Housing Burden Cost', layers: [layers.counties_hcb]},
         end: {lat: 44.0000000, lng: -123.5000000, zoom: 7, name: 'The End'}
