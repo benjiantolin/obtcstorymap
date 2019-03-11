@@ -6,7 +6,7 @@ html {
 body {
     height: 100%;
     font-family: Cairo, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .cesium-viewer-cesiumWidgetContainer {
@@ -23,8 +23,8 @@ body {
 }
 
 h1 {
-    margin-top: 25%;
-    font-family: Cairo, sans-serif;
+    margin-top: 15%;
+    font-family: Lato, sans-serif;
     color: rgba(255, 255, 255, 0.95);
     font-size: 4vw;
     text-shadow: 0 0 6px rgba(0, 0, 0, .95);
@@ -46,9 +46,6 @@ h1 {
     display: block;
     z-index: 1000;
     background-color: rgba(238, 238, 238, 0);
-
-
-
 }
 
 .storymap-map {
@@ -125,7 +122,7 @@ section {
     bottom: 0;
     right: 0;
     border-radius: 0;
-    min-height: 100%;
+    min-height: 115%;
     min-width: 100%;
     /*pointer-events: none;*/
     display: block;
