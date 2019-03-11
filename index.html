@@ -192,7 +192,7 @@
     //////////////////////////////////////////////////////////////////////////
     // Scene 2: Total Population Choropleth
     // Set function for color ramp
-    function setColor(density){
+    function setColor1(density){
         //Tenary operation: condition ? valueIfTrue : valueIfFalse
         // condition ? value1 : value2
         return  density > 5644088 ? '#b30000' :
@@ -203,9 +203,9 @@
     }
 
     // Set style function that sets fill color property equal to Total Population
-    function style(feature) {
+    function style1(feature) {
         return {
-            fillColor: setColor(feature.properties.Total_Popu),
+            fillColor: setColor1(feature.properties.Total_Popu),
             fillOpacity: 0.5,
             weight: 2,
             opacity: 0.8,
@@ -216,7 +216,7 @@
 
     var counties_totpop = L.geoJson.ajax('assets/counties.geojson',
         {
-            style: style,
+            style: style1,
             onEachFeature: function (feature, layer) {
                 layer.bindTooltip(feature.properties.altName+"<br> Total Pop: "+feature.properties.Total_Popu , {className: 'feature-label', permanent: false, direction: 'center'});
             }
@@ -236,7 +236,7 @@
         // Scene 3: Rural Population Percentage
 
         // Set function for color ramp
-        function setColor(density){
+        function setColor2(density){
             //Tenary operation: condition ? valueIfTrue : valueIfFalse
             // condition ? value1 : value2
             return  density > 100 ? '#b30000' :
@@ -247,9 +247,9 @@
         }
 
         // Set style function that sets fill color property equal to percentage of rural population
-        function style(feature) {
+        function style2(feature) {
             return {
-                fillColor: setColor(feature.properties.Rural_Popu),
+                fillColor: setColor2(feature.properties.Rural_Popu),
                 fillOpacity: 0.5,
                 weight: 2,
                 opacity: 0.8,
@@ -260,7 +260,7 @@
 
         var counties_ruralpop = L.geoJson.ajax('assets/counties.geojson',
             {
-                style: style,
+                style: style2,
                 onEachFeature: function (feature, layer) {
                     layer.bindTooltip(feature.properties.altName+"<br> Rural Population: "+ (feature.properties.Rural_Popu).toFixed(2) + "%", {className: 'feature-label', permanent: false, direction: 'center'});
                 }
@@ -277,7 +277,7 @@
             // Scene 4: Net Migration
 
             // Set function for color ramp
-            function setColor(density){
+            function setColor3(density){
                 //Tenary operation: condition ? valueIfTrue : valueIfFalse
                 // condition ? value1 : value2
                 return  density > 12.91705 ? '#b30000' :
@@ -288,9 +288,9 @@
             }
 
             // Set style function that sets fill color property equal to net migration
-            function style(feature) {
+            function style3(feature) {
                 return {
-                    fillColor: setColor(feature.properties.Migration),
+                    fillColor: setColor3(feature.properties.Migration),
                     fillOpacity: 0.5,
                     weight: 2,
                     opacity: 0.8,
@@ -301,7 +301,7 @@
 
             var counties_netmigrate = L.geoJson.ajax('assets/counties.geojson',
                 {
-                    style: style,
+                    style: style3,
                     onEachFeature: function (feature, layer) {
                         layer.bindTooltip(feature.properties.altName+"<br> Net Migration: "+ (feature.properties.Migration).toFixed(2), {className: 'feature-label', permanent: false, direction: 'center'});
                     }
@@ -319,7 +319,7 @@
 
 
                     // Set function for color ramp
-                    function setColor(density){
+                    function setColor4(density){
                         //Tenary operation: condition ? valueIfTrue : valueIfFalse
                         // condition ? value1 : value2
                         return  density > 38.111159 ? '#b30000' :
@@ -330,9 +330,9 @@
                     }
 
                     // Set style function that sets fill color property equal to the housing cost burden
-                    function style(feature) {
+                    function style4(feature) {
                         return {
-                            fillColor: setColor(feature.properties.Housing_Co),
+                            fillColor: setColor4(feature.properties.Housing_Co),
                             fillOpacity: 0.5,
                             weight: 2,
                             opacity: 0.8,
@@ -343,7 +343,7 @@
 
                     var counties_hcb = L.geoJson.ajax('assets/counties.geojson',
                         {
-                            style: style,
+                            style: style4,
                             onEachFeature: function (feature, layer) {
                                 layer.bindTooltip(feature.properties.altName+"<br> Housing Cost Burden: "+ (feature.properties.Housing_Co).toFixed(2)+ "%", {className: 'feature-label', permanent: false, direction: 'center'});
                             }
